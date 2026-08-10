@@ -23,3 +23,11 @@ CREATE TABLE vehiculos (
     anio INT NOT NULL,
     CONSTRAINT fk_vehiculo_cliente FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
+-- 3. Tabla Mecánicos
+CREATE TABLE mecanicos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    especialidad VARCHAR(100) NOT NULL,
+    activo TINYINT(1) DEFAULT 1
+) ENGINE=InnoDB;
