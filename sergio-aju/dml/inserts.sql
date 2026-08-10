@@ -25,3 +25,11 @@ INSERT INTO mecanicos (nombre, especialidad, activo) VALUES
 ('Roberto Bielas', 'Transmisiones y Frenos Carbocerámicos', 1),
 ('Lucas Pistón', 'Diagnóstico General de Pista', 0); 
 
+
+-- 5 servicios 
+INSERT INTO servicios (nombre, categoria, precio_base, duracion_min) VALUES
+('Overhaul de Motor', 'Mecánica Mayor', 1500.00, 240),
+('Alineación Dinámica de Suspensión', 'Pista', 450.00, 90),
+('Mantenimiento Preventivo Desmo', 'Motos', 350.00, 120),
+('Cambio de Frenos Carbocerámicos', 'Seguridad', 1200.00, 180),
+('Diagnóstico Computarizado y Telemetría', 'Electrónica', 250.00, 60);
