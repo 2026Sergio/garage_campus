@@ -57,3 +57,8 @@ CREATE TABLE citas_servicio (
     CONSTRAINT fk_cita_servicio FOREIGN KEY (servicio_id) REFERENCES servicios(id) ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT fk_cita_mecanico FOREIGN KEY (mecanico_id) REFERENCES mecanicos(id) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
+-- Índices para que las consultas voladoras de los reportes corran rápido
+CREATE INDEX idx_citas_estado ON citas_servicio(estado);
+CREATE INDEX idx_citas_fecha ON citas_servicio(fecha_programada);
+
