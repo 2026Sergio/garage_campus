@@ -31,3 +31,12 @@ CREATE TABLE mecanicos (
     especialidad VARCHAR(100) NOT NULL,
     activo TINYINT(1) DEFAULT 1
 ) ENGINE=InnoDB;
+
+-- 4. Tabla Servicios (Catálogo)
+CREATE TABLE servicios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
+    precio_base DECIMAL(10,2) NOT NULL,
+    duracion_min INT NOT NULL
+) ENGINE=InnoDB;
