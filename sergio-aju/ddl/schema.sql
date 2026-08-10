@@ -40,3 +40,20 @@ CREATE TABLE servicios (
     precio_base DECIMAL(10,2) NOT NULL,
     duracion_min INT NOT NULL
 ) ENGINE=InnoDB;
+
+
+-- 5. Tabla Citas de Servicio (La que junta todo el poder relacional)
+CREATE TABLE citas_servicio (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    vehiculo_id INT NOT NULL,
+    servicio_id INT NOT NULL,
+    mecanico_id INT NOT NULL,
+    fecha_programada DATETIME NOT NULL,
+    estado ENUM('pendiente', 'en_proceso', 'completada', 'cancelada') DEFAULT 'pendiente',
+    precio_final DECIMAL(10,2) NOT NULL,
+    notas VARCHAR(255),
+    actualizado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_cita_vehiculo FOREIGN KEY (vehiculo_id) REFERENCES vehiculos(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT fk_cita_servicio FOREIGN KEY (servicio_id) REFERENCES servicios(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT fk_cita_mecanico FOREIGN KEY (mecanico_id) REFERENCES mecanicos(id) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB;
