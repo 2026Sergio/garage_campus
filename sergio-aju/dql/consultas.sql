@@ -24,3 +24,14 @@ SELECT
     SUM(precio_final) AS acumulado_precio
 FROM citas_servicio
 GROUP BY estado;
+
+-- 3. Ranking de mecánicos por cantidad de citas atendidas
+SELECT 
+    m.id AS mecanico_id,
+    m.nombre AS mecanico,
+    m.especialidad,
+    COUNT(c.id) AS total_citas_atendidas
+FROM mecanicos m
+LEFT JOIN citas_servicio c ON m.id = c.mecanico_id
+GROUP BY m.id, m.nombre, m.especialidad
+ORDER BY total_citas_atendidas DESC;
