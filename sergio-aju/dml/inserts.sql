@@ -17,3 +17,11 @@ INSERT INTO vehiculos (cliente_id, tipo, marca, modelo, placa, anio) VALUES
 (4, 'auto_lujo', 'Mercedes-Benz', 'AMG GT', 'P-789GHI', 2023),
 (5, 'hiperdeportivo', 'Ferrari', 'SF90 Stradale', 'H-111AAA', 2024),
 (5, 'moto_alto_cilindraje', 'BMW', 'S1000RR', 'M-321BBB', 2024);
+
+-- 4 mecánicos 
+INSERT INTO mecanicos (nombre, especialidad, activo) VALUES
+('Esteban Quito', 'Motores de Alta Competición', 1),
+('Mariana V8', 'Sistemas Electrónicos y ECU', 1),
+('Roberto Bielas', 'Transmisiones y Frenos Carbocerámicos', 1),
+('Lucas Pistón', 'Diagnóstico General de Pista', 0); 
+
