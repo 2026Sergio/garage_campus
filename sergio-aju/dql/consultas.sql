@@ -49,3 +49,16 @@ JOIN clientes cl ON v.cliente_id = cl.id
 JOIN citas_servicio c ON v.id = c.vehiculo_id
 GROUP BY v.id, v.placa, cl.nombre
 HAVING COUNT(c.id) > 1;
+
+
+-- 5. Servicios más solicitados y promedio de precio final
+SELECT 
+    s.id AS servicio_id,
+    s.nombre AS servicio,
+    s.categoria,
+    COUNT(c.id) AS veces_solicitado,
+    AVG(c.precio_final) AS promedio_precio_final
+FROM servicios s
+LEFT JOIN citas_servicio c ON s.id = c.servicio_id
+GROUP BY s.id, s.nombre, s.categoria
+ORDER BY veces_solicitado DESC;
