@@ -33,3 +33,18 @@ INSERT INTO servicios (nombre, categoria, precio_base, duracion_min) VALUES
 ('Mantenimiento Preventivo Desmo', 'Motos', 350.00, 120),
 ('Cambio de Frenos Carbocerámicos', 'Seguridad', 1200.00, 180),
 ('Diagnóstico Computarizado y Telemetría', 'Electrónica', 250.00, 60);
+
+
+-- 10 citas iniciales para tener con qué jugar en los reportes
+INSERT INTO citas_servicio (vehiculo_id, servicio_id, mecanico_id, fecha_programada, estado, precio_final, notas) VALUES
+(1, 3, 1, '2026-08-10 09:00:00', 'pendiente', 350.00, 'Revisión general previa a rodada'),
+(2, 2, 2, '2026-08-10 11:30:00', 'en_proceso', 450.00, 'Ajuste de caída para circuito'),
+(3, 1, 3, '2026-08-11 08:00:00', 'pendiente', 1500.00, 'Mantenimiento preventivo mayor'),
+(4, 3, 1, '2026-08-11 14:00:00', 'pendiente', 380.00, 'Cambio de aceite y filtros de alto rendimiento'),
+(5, 4, 3, '2026-08-12 10:00:00', 'completada', 1200.00, 'Sustitución de pastillas de freno'),
+(6, 1, 3, '2026-08-12 15:00:00', 'en_proceso', 1600.00, 'Revisión de turbos'),
+(7, 3, 1, '2026-08-13 09:30:00', 'pendiente', 350.00, 'Ajuste de cadena y embrague'),
+(1, 5, 2, '2026-08-05 10:00:00', 'completada', 250.00, 'Lectura de sensores'),
+(2, 4, 3, '2026-08-04 11:00:00', 'cancelada', 1200.00, 'Cliente canceló por viaje'),
+(3, 5, 2, '2026-08-03 16:00:00', 'completada', 250.00, 'Prueba de telemetría final');
+
