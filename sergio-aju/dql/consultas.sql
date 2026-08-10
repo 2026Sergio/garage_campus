@@ -35,3 +35,17 @@ FROM mecanicos m
 LEFT JOIN citas_servicio c ON m.id = c.mecanico_id
 GROUP BY m.id, m.nombre, m.especialidad
 ORDER BY total_citas_atendidas DESC;
+
+
+-- 4. Vehículos con más de una cita registrada
+SELECT 
+    v.id AS vehiculo_id,
+    CONCAT(v.marca, ' ', v.modelo) AS vehiculo,
+    v.placa,
+    cl.nombre AS propietario,
+    COUNT(c.id) AS total_citas
+FROM vehiculos v
+JOIN clientes cl ON v.cliente_id = cl.id
+JOIN citas_servicio c ON v.id = c.vehiculo_id
+GROUP BY v.id, v.placa, cl.nombre
+HAVING COUNT(c.id) > 1;
