@@ -12,4 +12,14 @@ CREATE TABLE clientes (
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
-
+-- 2. Tabla Vehículos (Con su llave foránea al cliente)
+CREATE TABLE vehiculos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT NOT NULL,
+    tipo ENUM('moto_alto_cilindraje', 'auto_lujo', 'hiperdeportivo') NOT NULL,
+    marca VARCHAR(50) NOT NULL,
+    modelo VARCHAR(50) NOT NULL,
+    placa VARCHAR(20) UNIQUE NOT NULL,
+    anio INT NOT NULL,
+    CONSTRAINT fk_vehiculo_cliente FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB;
