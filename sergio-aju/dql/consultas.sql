@@ -16,3 +16,11 @@ JOIN servicios s ON c.servicio_id = s.id
 JOIN mecanicos m ON c.mecanico_id = m.id
 WHERE c.estado = 'pendiente'
 ORDER BY c.fecha_programada ASC;
+
+-- 2. Total estimado por estado de cita
+SELECT 
+    estado,
+    COUNT(*) AS total_citas,
+    SUM(precio_final) AS acumulado_precio
+FROM citas_servicio
+GROUP BY estado;
